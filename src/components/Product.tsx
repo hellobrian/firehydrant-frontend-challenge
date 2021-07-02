@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 
 import { getUserById } from "../utils/api";
+import styles from "./Product.module.scss";
 
 interface ProductProps {
   name: string;
@@ -26,10 +27,10 @@ export function Product(props: ProductProps): JSX.Element {
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
-      <p>{summary}</p>
-      {data && <p>Created by: {data.name}</p>}
+    <div className={`${styles.Product} shadow-md`}>
+      <h3 className={styles.Name}>{name}</h3>
+      <p className={styles.Summary}>{summary}</p>
+      {data && <p className={styles.CreatedBy}>Created by: {data.name}</p>}
     </div>
   );
 }

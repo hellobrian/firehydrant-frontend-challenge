@@ -3,6 +3,8 @@ import { useQuery } from "react-query";
 import { Product } from "../components/Product";
 import { getProducts } from "../utils/api";
 
+import styles from "./ProductsPage.module.scss";
+
 interface ProductApi {
   id: number;
   name: string;
@@ -22,7 +24,7 @@ export function ProductsPage(): JSX.Element {
 
   return (
     <>
-      <div>
+      <div className={styles.ProductsPage}>
         {data.map((product: ProductApi) => (
           <Product
             key={product.id}
@@ -32,7 +34,6 @@ export function ProductsPage(): JSX.Element {
           />
         ))}
       </div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   );
 }
