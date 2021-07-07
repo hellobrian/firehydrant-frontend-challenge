@@ -1,0 +1,13 @@
+.Avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.Avatar > img {
+  display: inline-flex;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}

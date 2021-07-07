@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-
+import { Avatar } from "./Avatar";
 import { getUserById } from "../utils/api";
 import styles from "./Product.module.scss";
 
@@ -14,21 +14,6 @@ interface UserApi {
   name: string;
   email: string;
   avatar: string;
-}
-
-interface AvatarProps {
-  imgSrc: string;
-  name: string;
-}
-
-function Avatar(props: AvatarProps) {
-  const { imgSrc, name } = props;
-  return (
-    <div className={styles.Avatar}>
-      <img className={styles.Avatar} src={imgSrc} alt="avatar" />
-      <span>{name}</span>
-    </div>
-  );
 }
 
 export function Product(props: ProductProps): JSX.Element {
