@@ -1,8 +1,7 @@
 import { useQuery } from "react-query";
-
 import { Product } from "../components/Product";
+import { Header } from "../components/Header";
 import { getProducts } from "../utils/api";
-
 import styles from "./ProductsPage.module.scss";
 
 interface ProductApi {
@@ -24,6 +23,7 @@ export function ProductsPage(): JSX.Element {
 
   return (
     <>
+      <Header />
       <div className={styles.ProductsPage}>
         {data.map((product: ProductApi) => (
           <Product

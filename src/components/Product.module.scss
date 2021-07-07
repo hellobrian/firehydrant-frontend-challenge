@@ -1,17 +1,7 @@
 .Product {
+  background-color: white;
   padding: 16px;
-  transition: box-shadow 200ms ease, background-color 200ms ease,
-    color 200ms ease;
-  border-radius: 8px;
-}
-
-.Product:hover {
-  background-color: rgba(salmon, 0.5);
-
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 24px;
 }
 
 .Name {
@@ -20,4 +10,18 @@
 
 .Summary {
   margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.Avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.Avatar > img {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
 }

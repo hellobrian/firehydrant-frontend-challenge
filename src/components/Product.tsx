@@ -16,6 +16,21 @@ interface UserApi {
   avatar: string;
 }
 
+interface AvatarProps {
+  imgSrc: string;
+  name: string;
+}
+
+function Avatar(props: AvatarProps) {
+  const { imgSrc, name } = props;
+  return (
+    <div className={styles.Avatar}>
+      <img className={styles.Avatar} src={imgSrc} alt="avatar" />
+      <span>{name}</span>
+    </div>
+  );
+}
+
 export function Product(props: ProductProps): JSX.Element {
   const { name, summary, createdById } = props;
   const { status, data } = useQuery(["userById", createdById], () =>
@@ -29,8 +44,8 @@ export function Product(props: ProductProps): JSX.Element {
   return (
     <div className={`${styles.Product} shadow-md`}>
       <h3 className={styles.Name}>{name}</h3>
+      {data && <Avatar imgSrc={data.avatar} name={data.name} />}
       <p className={styles.Summary}>{summary}</p>
-      {data && <p className={styles.CreatedBy}>Created by: {data.name}</p>}
     </div>
   );
 }
