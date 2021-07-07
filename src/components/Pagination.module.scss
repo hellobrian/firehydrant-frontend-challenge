@@ -1,0 +1,49 @@
+$blurple: #4834d4;
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.Pagination button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  appearance: none;
+  background: $blurple;
+  color: white;
+  border: none;
+  font-size: 16px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+
+  transition: background 200ms ease, color 200ms ease, fill 200ms ease;
+
+  & > svg {
+    fill: white;
+  }
+}
+
+.Pagination button:hover {
+  background: white;
+  color: $blurple;
+  border-color: $blurple;
+
+  & > svg {
+    fill: $blurple;
+  }
+}
+
+.Pagination button:disabled {
+  opacity: 0.5;
+  background: #ccc;
+  border-color: #ccc;
+  color: black;
+
+  & > svg {
+    fill: black;
+  }
+}

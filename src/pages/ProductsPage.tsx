@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { Product } from "../components/Product";
 import { Header } from "../components/Header";
+import { Pagination } from "../components/Pagination";
 import { getProducts } from "../utils/api";
 import styles from "./ProductsPage.module.scss";
 
@@ -15,10 +17,20 @@ interface ProductApi {
 }
 
 export function ProductsPage(): JSX.Element {
-  const { status, data } = useQuery("products", getProducts);
+  const [page, setPage] = useState(0);
+
+  const { status, data, error, isPreviousData } = useQuery(
+    ["products", page],
+    () => getProducts(page),
+    { keepPreviousData: true }
+  );
 
   if (status === "loading") {
     return <div>Loading...</div>;
+  }
+
+  if (status === "error") {
+    <div>Error: {error}</div>;
   }
 
   return (
@@ -34,6 +46,11 @@ export function ProductsPage(): JSX.Element {
           />
         ))}
       </div>
+      <Pagination
+        isPreviousData={isPreviousData}
+        setPage={setPage}
+        page={page}
+      />
     </>
   );
 }
